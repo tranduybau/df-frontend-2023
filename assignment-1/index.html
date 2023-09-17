@@ -1,14 +1,137 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
     <title>Bookstore</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
 
-  <body>
-    Hello world
-    <script src="script.js"></script>
-  </body>
+<body>
+<header class="header">
+    <div class="container flex items-center justify-between">
+        <h1>Bookstore</h1>
+
+        <div class="flex items-center justify-between">
+            <img src="https://picsum.photos/200" alt="User Avatar" width="50" height="50" class="avatar">
+
+            <span>
+                <strong>John Doe</strong>
+            </span>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="flex items-center justify-end search-container">
+        <label>
+            <input type="text" placeholder="Search books" id="search-input">
+        </label>
+
+        <button id="add-book-btn" type="button" onclick="handleOpenModal()">
+            Add book
+        </button>
+    </div>
+    <table class="table-books w-full">
+        <colgroup>
+            <col class="col-name"/>
+            <col class="col-author"/>
+            <col class="col-topic"/>
+            <col class="col-action"/>
+        </colgroup>
+
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Topic</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody id="book-list">
+        <!-- we will append books here -->
+        </tbody>
+    </table>
+
+    <div id="modal" class="modal-container">
+        <div class="modal-overlay" onclick="handleCloseModal()"></div>
+
+        <div id="delete-book" class="modal-wrapper hidden">
+            <button class="ghost close-btn" type="button" onclick="handleCloseModal()">
+                <img src="close.svg" alt="Close" width="24" height="24">
+            </button>
+
+            <div class="text-center modal-title">
+                Delete book
+            </div>
+
+            <div class="text-center flex flex-col content">
+                <span>Do you want to delete</span>
+
+                <span><b id="delete-book-title"></b> book?</span>
+            </div>
+
+            <div class="flex items-center justify-center delete-btn-group">
+                <button class="ghost" type="button" id="delete-book-confirm-btn" onclick="handleDeleteBook()">
+                    Delete
+                </button>
+
+                <button type="button" onclick="handleCloseModal()">
+                    Cancel
+                </button>
+            </div>
+        </div>
+
+        <form id="add-book" class="modal-wrapper hidden"  onsubmit="handleAddBook(event)">
+            <button class="ghost close-btn" type="button" onclick="handleCloseModal()">
+                <img src="close.svg" alt="Close" width="24" height="24">
+            </button>
+
+            <div class="modal-title">
+                Add book
+            </div>
+
+            <div class="flex flex-col form">
+                <label>
+                    <span class="label">
+                        Name
+                    </span>
+
+                    <input type="text" placeholder="Name" required name="name">
+                </label>
+
+                <label>
+                    <span class="label">
+                        Author
+                    </span>
+
+                    <input type="text" placeholder="Author" required name="author">
+                </label>
+
+                <label>
+                    <span class="label">
+                        Topic
+                    </span>
+
+                    <select name="topic" required>
+                        <option value="Programming" selected>Programming</option>
+                        <option value="Database">Database</option>
+                        <option value="DevOps">DevOps</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="flex items-center justify-end delete-btn-group">
+                <button type="submit">
+                    Create
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
 </html>
