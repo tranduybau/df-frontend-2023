@@ -1,0 +1,70 @@
+label {
+    display: flex;
+    flex-direction: column;
+
+    & span.label {
+        color: dimgray;
+        font-weight: 600;
+        font-size: 0.875rem;
+    }
+
+    & input, & select {
+        min-height: 40px;
+        min-width: 200px;
+        border: 2px solid lightgray;
+        border-radius: 4px;
+        padding: 0 16px;
+    }
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    min-width: 64px;
+    border-radius: 4px;
+    padding: 0 16px;
+
+    background-color: crimson;
+    border: 2px solid crimson;
+
+    color: white;
+
+    transition: 0.3s all ease;
+
+    &:hover {
+        cursor: pointer;
+        background-color: white;
+        color: crimson;
+    }
+
+    &.ghost {
+        /*padding: 0;*/
+        background: transparent;
+        border-color: transparent;
+        color: black;
+
+        &:hover {
+            color: crimson;
+            border-color: crimson;
+        }
+    }
+
+    &.close-btn {
+        padding: 4px !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+
+        &:hover {
+            border-color: lightgray;
+        }
+    }
+}
+
+.link-btn {
+    all: unset;
+
+    color: crimson;
+    text-decoration: underline;
+}
