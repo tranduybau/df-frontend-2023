@@ -46,9 +46,27 @@ function renderBooks(books) {
 function handleDeleteBook() {
     const books = JSON.parse(localStorage.getItem('books')) || initValue
     const newBooks = books.filter(book => String(book.id) !== String(selectedBookId))
+    storedBooks.splice(selectedBookId - 1, 1)
 
     localStorage.setItem('books', JSON.stringify(newBooks))
     renderBooks(newBooks)
+    handleCloseModal()
+}
+
+function handleAddBook(event) {
+    event.preventDefault()
+    const form = event.target.elements
+    const newBooks = {
+        author: form.author.value,
+        name: form.name.value,
+        topic: form.topic.value,
+        id: Math.random().toString(36).substr(2, 9)
+    }
+
+    storedBooks.push(newBooks)
+    localStorage.setItem('books', JSON.stringify(storedBooks))
+    renderBooks(storedBooks)
+    event.target.reset()
     handleCloseModal()
 }
 
@@ -80,23 +98,6 @@ function handleOpenModal(type, event) {
 function handleCloseModal() {
     const modal = document.getElementById('modal')
     modal.classList.remove('active')
-}
-
-function handleAddBook(event) {
-    event.preventDefault()
-    const form = event.target.elements
-    const newBooks = {
-        author: form.author.value,
-        name: form.name.value,
-        topic: form.topic.value,
-        id: Math.random().toString(36).substr(2, 9)
-    }
-
-    storedBooks.push(newBooks)
-    localStorage.setItem('books', JSON.stringify(storedBooks))
-    renderBooks(storedBooks)
-    event.target.reset()
-    handleCloseModal()
 }
 
 renderBooks(storedBooks)
