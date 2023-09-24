@@ -1,0 +1,36 @@
+.Pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 20px;
+
+  & button {
+    &:hover {
+      background: crimson;
+      color: var(--color-text);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background: transparent;
+      color: crimson;
+      border-color: transparent;
+      opacity: 0.7;
+    }
+  }
+}
+
+.Item {
+  min-width: 0 !important;
+}
+
+.Empty {
+  &:before {
+    content: '...';
+  }
+
+  & + & {
+    display: none;
+  }
+}
