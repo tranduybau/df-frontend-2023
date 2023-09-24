@@ -43,3 +43,19 @@
 .text-center {
   text-align: center;
 }
+
+.p-0 {
+  padding: 0 !important;
+}
+
+.ml-3 {
+  margin-left: 0.75rem;
+}
+
+.min-w-0 {
+  min-width: 0;
+}
+
+.border-0 {
+  border: 0;
+}
