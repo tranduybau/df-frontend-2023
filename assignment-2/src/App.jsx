@@ -16,7 +16,7 @@ function App() {
     localTheme = localTheme ? JSON.parse(localTheme) : Theme.LIGHT
 
     return localTheme
-  }, [])
+  })
 
   const [modalType, setModalType] = useState(false);
   const [listBooks, setListBooks] = useState(() => {
@@ -29,7 +29,7 @@ function App() {
     let localPage = localStorage.getItem('page')
     localPage = localPage ? JSON.parse(localPage) : 1
     return +localPage
-  }, []);
+  });
 
   const currentList = listBooks.slice((page - 1) * 5, page * 5);
 
