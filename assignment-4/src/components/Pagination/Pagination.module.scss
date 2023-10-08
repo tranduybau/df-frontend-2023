@@ -1,0 +1,9 @@
+.Empty {
+  &:before {
+    content: '...';
+  }
+
+  & + & {
+    display: none;
+  }
+}

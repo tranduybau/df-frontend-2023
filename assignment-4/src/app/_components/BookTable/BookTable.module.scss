@@ -1,0 +1,9 @@
+.Table {
+  text-align: left;
+
+  &, & th, & td {
+    padding: 8px;
+    border: 2px solid var(--text);
+    border-collapse: collapse;
+  }
+}
